@@ -19,3 +19,8 @@ test("numbers separated by new line and commas return thier sum ", () => {
   expect(add("1\n5,7")).toBe(13);
   expect(add("1\n5\n7")).toBe(13);
 } );
+test("support different delimiters defined in input", () => {
+  expect(add("//;\n1;2")).toBe(3);
+  expect(add("//;\n1;2;3")).toBe(6);
+  expect(add("//;\n1;2;3;4")).toBe(10);
+} );
