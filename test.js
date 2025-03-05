@@ -17,4 +17,5 @@ test("multiple numbers  seperated by comma returns thier sum", () => {
 test("numbers separated by new line and commas return thier sum ", () => {
   expect(add("1\n2,3")).toBe(6);
   expect(add("1\n5,7")).toBe(13);
+  expect(add("1\n5\n7")).toBe(13);
 } );
