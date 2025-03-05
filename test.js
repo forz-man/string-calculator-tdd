@@ -10,4 +10,7 @@ test("two numbers depersted by comma returns thier sum", () => {
   expect(add("1,2")).toBe(3);
   expect(add("1,5")).toBe(6);
 } );
-
+test("multiple numbers  seperated by comma returns thier sum", () => {
+  expect(add("1,2,3")).toBe(6);
+  expect(add("1,5,7")).toBe(13);
+} );
