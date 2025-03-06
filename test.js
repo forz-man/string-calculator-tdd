@@ -25,6 +25,6 @@ test("support different delimiters defined in input", () => {
   expect(add("//;\n1;2;3;4")).toBe(10);
 } );
 test("negative numbers throw an exception", () => {
-  expect(() => add("-1,2")).toThrow("Negatives not allowed: -1");
-  expect(() => add("2,-4,3,-5")).toThrow("Negatives not allowed: -4,-5");
+  expect(() => add("-1,2")).toThrow("negative numbers not allowed : -1");
+  expect(() => add("2,-4,3,-5")).toThrow("negative numbers not allowed : -4,-5");
 } );
