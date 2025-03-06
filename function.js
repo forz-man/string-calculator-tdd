@@ -2,11 +2,22 @@ function add(numbers) {
 if  (numbers === "") return 0;
 let delimiters = /,|\n/;
 
- const customDelimiter = numbers.match(/^\/\/(.+)\n/);
+ const customDelimiter = numbers.match(/^\/\/(\[.*\])\n/);
   if (customDelimiter) {
-    delimiters = new RegExp(customDelimiter[1]);
+    const delimeterPart = customDelimiter[1]
+    .slice(1, -1)
+    .split("][")
+    .map(d => d.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"))
+    .join("|");
+    delimiters = new RegExp(delimeterPart); 
     numbers = numbers.split("\n")[1];
+  } else if (numbers.startsWith("//")) {  
+   const singleDelimiterMatch = numbers.match(/^\/\/(.+)\n/);
+   if (singleDelimiterMatch) {
+     delimiters = new RegExp(singleDelimiterMatch[1]);
+     numbers = numbers.split("\n")[1];    
   }
+}
 
   const numArray =numbers
   .split(delimiters)
