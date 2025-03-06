@@ -32,3 +32,7 @@ test("numbers greater than 1000 are ignored", () => {
   expect(add("1001,2")).toBe(2);
   expect(add("1001,2,1000")).toBe(1002);
 } );
+test("support multicharacter delimiters", () => {
+  expect(add("//[***]\n1***2***3")).toBe(6);
+  expect(add("//[***]\n1***2***3***4")).toBe(10);
+} );
