@@ -8,7 +8,12 @@ let delimiters = /,|\n/;
     numbers = numbers.split("\n")[1];
   }
 
-  const numArray =numbers.split(delimiters).map(num => parseInt(num ,10 ));
+  const numArray =numbers
+  .split(delimiters)
+  .map(num => parseInt(num ,10 ))
+  .filter(num => num <= 1000);
+
+
   const negative = numArray.filter(num => num < 0 );
   if (negative.length > 0){
     throw new Error (`negative numbers not allowed : ${negative.join(",")}`);
